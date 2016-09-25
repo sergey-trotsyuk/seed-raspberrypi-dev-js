@@ -1,0 +1,14 @@
+version: '2'
+services:
+
+  src-data:
+    build: ./src-data
+    volumes:
+     - "../src:/home/raspberrypi-dev-js/src"
+
+  raspberrypi-dev-js:
+    build: ./raspberrypi-dev-js
+    volumes_from:
+     - src-data:ro
+    ports:
+     - "3000:3000"
